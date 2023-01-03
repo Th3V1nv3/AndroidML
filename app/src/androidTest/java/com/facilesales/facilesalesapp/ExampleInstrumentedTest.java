@@ -1,4 +1,4 @@
-package com.example.androidml;
+package com.facilesales.facilesalesapp;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.androidml", appContext.getPackageName());
+        assertEquals("com.facilesales.facilesalesapp", appContext.getPackageName());
     }
 }

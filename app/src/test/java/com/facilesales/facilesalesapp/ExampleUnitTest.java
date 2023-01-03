@@ -1,4 +1,4 @@
-package com.example.androidml;
+package com.facilesales.facilesalesapp;
 
 import org.junit.Test;
 
