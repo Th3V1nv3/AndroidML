@@ -13,23 +13,23 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.facilesales.facilesalesapp.databinding.ActivityCameraBinding;
+import com.facilesales.facilesalesapp.databinding.ActivityAddBinding;
 
-public class Camera extends AppCompatActivity {
+public class Add extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityCameraBinding binding;
+    private ActivityAddBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityCameraBinding.inflate(getLayoutInflater());
+        binding = ActivityAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_camera);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_add);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
@@ -44,7 +44,7 @@ public class Camera extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_camera);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_add);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }

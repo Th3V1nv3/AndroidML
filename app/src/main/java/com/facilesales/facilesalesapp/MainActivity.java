@@ -1,9 +1,11 @@
 package com.facilesales.facilesalesapp;
 
+import static com.facilesales.facilesalesapp.pojos.Values.CAM_INTENT_ID;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +30,16 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        intent = new Intent(getApplicationContext(),Cam.class);
+        final String uniqueId = CAM_INTENT_ID;
+
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /* TODO start the cam Fragment as we press the float button
+                *   send a Bundle with a digit (e.g 1) to show that this is a sell function*/
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

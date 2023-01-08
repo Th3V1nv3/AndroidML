@@ -1,9 +1,8 @@
-package com.facilesales.facilesalesapp.ui.home;
+package com.facilesales.facilesalesapp;
 
-import static android.app.Activity.RESULT_OK;
-
-import static androidx.core.content.PermissionChecker.PERMISSION_GRANTED;
-import static androidx.core.content.PermissionChecker.checkSelfPermission;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
@@ -12,22 +11,16 @@ import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.facilesales.facilesalesapp.databinding.FragmentHomeBinding;
+import com.facilesales.facilesalesapp.databinding.ActivityCamBinding;
+import com.facilesales.facilesalesapp.databinding.ActivityMainBinding;
 import com.facilesales.facilesalesapp.ml.Model;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
@@ -36,21 +29,18 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class HomeFragment extends Fragment {
-
-    private FragmentHomeBinding binding;
+public class Cam extends AppCompatActivity {
+    private ActivityCamBinding binding;
     private TextView result, confidence;
     private ImageView imageView;
     private Button picture;
     private int imageSize = 224;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityCamBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         imageView = binding.imageView2;
         result = binding.result;
@@ -59,9 +49,8 @@ public class HomeFragment extends Fragment {
         picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Works",Toast.LENGTH_LONG).show();
                 if (ContextCompat.checkSelfPermission(
-                        getContext(), Manifest.permission.CAMERA) ==
+                        getApplicationContext(), Manifest.permission.CAMERA) ==
                         PackageManager.PERMISSION_GRANTED) {
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, 1);
@@ -71,11 +60,12 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-        return root;
     }
     public void classifyImage(Bitmap image){
+        String[] classes = {"Rectangle", "Star", "Cross", "Triangle"};
+        String displayableResults = "";
         try {
-            Model model = Model.newInstance(getContext());
+            Model model = Model.newInstance(getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -113,12 +103,20 @@ public class HomeFragment extends Fragment {
                     maxPos = i;
                 }
             }
-            String[] classes = {"Rectangle", "Star", "Cross", "Triangle"};
-            result.setText(classes[maxPos]);
+            if((int)confidences[maxPos] < 65) {
+
+                displayableResults = classes[maxPos];
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),"Please re-take picture",Toast.LENGTH_SHORT);
+                displayableResults = "Keep camera close to the image and make sure the image is clear";
+            }
+            Snackbar.make(result,displayableResults,Snackbar.LENGTH_INDEFINITE).show();
 
             model.close();
         } catch (IOException e) {
-            // TODO Handle the exception
+            Toast.makeText(getApplicationContext(),"Try again",Toast.LENGTH_LONG);
         }
     }
 
@@ -137,9 +135,5 @@ public class HomeFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+
 }
