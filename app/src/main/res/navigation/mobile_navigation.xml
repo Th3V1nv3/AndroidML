@@ -17,9 +17,21 @@
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.facilesales.facilesalesapp.ui.slideshow.SlideshowFragment"
+    <activity
+        android:id="@+id/nav_sell"
+        android:name="com.facilesales.facilesalesapp.SellingView"
+        android:label="Sell Items"
+        tools:layout="@layout/activity_selling_view2" />
+
+    <activity
+        android:id="@+id/nav_history"
+        android:name="com.facilesales.facilesalesapp.History"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/activity_history" />
+
+    <activity
+        android:id="@+id/nav_pv"
+        android:name="com.facilesales.facilesalesapp.ProductsView"
+        android:label="@string/menu_products"
+        tools:layout="@layout/activity_products_view" />
 </navigation>

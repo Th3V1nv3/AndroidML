@@ -1,7 +1,9 @@
 package com.facilesales.facilesalesapp.pojos;
 
-import com.facilesales.facilesalesapp.pojos.Products;
-
-public class SoldProducts extends Products {
+public class SoldProduct extends Products {
     public int invoiceId;
+
+    public SoldProduct(int id, String name, double cost, double sellingPrice, int quantity) {
+        super(id, name, cost, sellingPrice, quantity);
+    }
 }

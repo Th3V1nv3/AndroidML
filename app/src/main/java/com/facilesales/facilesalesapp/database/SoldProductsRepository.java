@@ -1,2 +1,4 @@
-package com.facilesales.facilesalesapp.database;public class SoldProductsRepository {
+package com.facilesales.facilesalesapp.database;
+
+public class SoldProductsRepository {
 }

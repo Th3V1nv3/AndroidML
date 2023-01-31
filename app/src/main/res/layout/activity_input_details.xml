@@ -6,4 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".Input_details">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vertica_container">
+        
+
+        <TextView
+            android:id="@+id/choosetxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Product info"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:id="@+id/product_id"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <Button
+                android:id="@+id/enterid"
+                android:layout_width="match_parent"
+                android:padding="2dp"
+                android:layout_gravity="center"
+                android:layout_height="50dp"
+                android:text="Click here first" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/name"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+
+            <EditText
+                android:id="@+id/enterName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter name"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cost"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+
+            <EditText
+                android:id="@+id/enterCost"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter cost price"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/price"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/enterPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter selling price"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quantity"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/enterQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter quantity"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:padding="2dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

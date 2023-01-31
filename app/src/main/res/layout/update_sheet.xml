@@ -1,7 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vertica_container">
+
+        <TextView
+            android:id="@+id/choosetxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Update Product"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:id="@+id/product_id"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+        <TextView
+            android:id="@+id/p_id"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/name"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+
+            <EditText
+                android:id="@+id/updateName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter name"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cost"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+
+            <EditText
+                android:id="@+id/updateCost"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter cost price"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/price"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/updatePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter selling price"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quantity"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/updateQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter quantity"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/saveUpdate"
+            android:layout_width="wrap_content"
+            android:padding="2dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Update" />
+
+    </LinearLayout>
 
 </LinearLayout>

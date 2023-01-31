@@ -4,56 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.home.HomeFragment">
 
-    <Button
-        android:id="@+id/button"
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="67dp"
-        android:text="Button"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="monospace"
+        android:text="Facile"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="monospace"
+        android:text="Sales"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sell"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="160dp"
+        android:src="@drawable/store"
+        app:layout_constraintBottom_toTopOf="@+id/sell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sell"
+        android:layout_width="256dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="310dp"
+        android:fontFamily="monospace"
+        android:text="Store"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/classified"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:text="Classified as:"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/result"
-        app:layout_constraintEnd_toStartOf="@+id/result"
-        app:layout_constraintStart_toStartOf="@+id/result"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/classified"
+    <Button
+        android:id="@+id/inventory"
+        android:layout_width="256dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:text="Inventory"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toBottomOf="@+id/sell" />
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="162dp"
-        android:text=""
-        android:textColor="#C30000"
-        android:textSize="27sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+    <Button
+        android:id="@+id/sales_history"
+        android:layout_width="256dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="monospace"
+        android:text="Sales History"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classified" />
+        app:layout_constraintTop_toBottomOf="@+id/inventory" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
